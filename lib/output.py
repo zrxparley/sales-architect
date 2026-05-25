@@ -22,67 +22,53 @@ console = Console()
 
 
 def print_main_menu():
-    """Print the main menu — retro terminal + modern flat illustration."""
+    """Print the main menu — retro terminal / hackathon poster style (HTML match)."""
     console.print()
 
-    # Terminal window frame
-    console.print("[bold]┌────────────────────────────────────────┐[/bold]")
-    console.print("[bold]│[/bold] [red]●[/red] [yellow]●[/yellow] [green]●[/green]   [bold white on black] SALES-ARCHITECT [/bold white on black]  [dim]× Terminal[/dim]   [bold]│[/bold]")
-    console.print("[bold]├────────────────────────────────────────┤[/bold]")
+    # Title bar with traffic lights
+    console.print("[red]● ● ●[/red]   [bold]sales-architect — zsh[/bold]")
+    console.print()
 
-    # ASCII art title - pixel font style
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [bold cyan]SALES[/bold cyan]  [bold magenta]ARCHITECT[/bold magenta]                       [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]████[/cyan]  [magenta]██████[/magenta]                          [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]██▀▀██[/cyan]  [magenta]██▀▀▀▀██[/magenta]  [dim]◢████████◣[/dim]     [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]██▄▄██[/cyan]  [magenta]██▄▄▄▄██[/magenta]  [dim]◢████████◣[/dim]     [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]████[/cyan]  [magenta]████████[/magenta]  [dim]◢████████◣[/dim]     [bold]│[/bold]")
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
+    # Banner
+    console.print("[bold yellow]※[/bold yellow] [bold]WELCOME TO THE SALES-ARCHITECT CONSOLE[/bold] [bold yellow]※[/bold yellow]")
 
-    # Geometric character illustration
-    console.print("[bold]│[/bold]   [dim]┌─────┐[/dim]            [dim]售前架构师工具箱[/dim]   [bold]│[/bold]")
-    console.print("[bold]│[/bold]   [dim]│ ◕‿◕ │[/dim]           [dim]Pre-sales Toolkit[/dim]    [bold]│[/bold]")
-    console.print("[bold]│[/bold]   [dim]│ ╭───╮│[/dim]         [yellow]━━━━━━━━━━━━━━━━[/yellow]   [bold]│[/bold]")
-    console.print("[bold]│[/bold]   [dim]│ │ SA │[/dim]                                [bold]│[/bold]")
-    console.print("[bold]│[/bold]   [dim]│ ╰───╯│[/dim]                                [bold]│[/bold]")
-    console.print("[bold]│[/bold]   [dim]└─────┘[/dim]           [bold]v1.0[/bold]                  [bold]│[/bold]")
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
+    # Main content - matching HTML style (using coral/orange for E07A5F, mustard for F2CC8F, teal for 4ECDC4)
+    console.print()
+    console.print("[bold coral]SALES[/bold coral]")
+    console.print("[bold mustard]ARCHITECT[/bold mustard]")
+    console.print()
+    console.print("[bold white]Everything[/bold white]")
+    console.print("[bold white]Solution[/bold white]")
+    console.print()
+    console.print("[mustard]💰 Pre-sales Toolkit v1.0[/mustard]")
+    console.print()
 
-    console.print("[bold]├────────────────────────────────────────┤[/bold]")
+    # Login simulation
+    console.print("[dim]$ login --user=sales-architect[/dim]")
+    console.print("[bold teal]✔ Login successful.[/bold teal] [dim]Press Enter to start →[/dim] [bold teal]▮[/bold teal]")
+    console.print()
 
-    # Commands section
-    console.print("[bold]│[/bold]  [bold yellow]▸ COMMANDS[/bold yellow]                              [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]lead-score[/bold cyan]  线索评估 8维100分           [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]news[/bold cyan]        AI行业早报                 [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]briefing[/bold cyan]    行业深度简报               [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]strategy[/bold cyan]    战略分析 KPMG              [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]simulate[/bold cyan]    战局推演                   [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]solution[/bold cyan]    方案设计 8步               [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]decide[/bold cyan]      商业决策                   [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]build[/bold cyan]       原型开发                   [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [cyan]▸[/cyan] [bold cyan]learn[/bold cyan]       能力学习                   [bold]│[/bold]")
+    # Commands
+    console.print("[bold]Commands:[/bold]")
+    console.print()
+    console.print("[cyan]▸[/cyan] [bold cyan]lead-score[/bold cyan]   线索评估 — 8维100分")
+    console.print("[cyan]▸[/cyan] [bold cyan]news[/bold cyan]         AI行业早报")
+    console.print("[cyan]▸[/cyan] [bold cyan]briefing[/bold cyan]     行业深度简报")
+    console.print("[cyan]▸[/cyan] [bold cyan]strategy[/bold cyan]     战略分析 KPMG")
+    console.print("[cyan]▸[/cyan] [bold cyan]simulate[/bold cyan]     战局推演")
+    console.print("[cyan]▸[/cyan] [bold cyan]solution[/bold cyan]     方案设计 8步")
+    console.print("[cyan]▸[/cyan] [bold cyan]decide[/bold cyan]       商业决策")
+    console.print("[cyan]▸[/cyan] [bold cyan]build[/bold cyan]        原型开发")
+    console.print("[cyan]▸[/cyan] [bold cyan]learn[/bold cyan]        能力学习")
+    console.print()
+    console.print("[magenta]▸[/magenta] [magenta]cycle[/magenta]        完整售前周期")
+    console.print("[magenta]▸[/magenta] [magenta]rfp[/magenta]          RFP快速响应")
+    console.print("[magenta]▸[/magenta] [magenta]compete[/magenta]       竞标对抗")
+    console.print()
 
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
-
-    # Workflows
-    console.print("[bold]│[/bold]  [bold magenta]▸ WORKFLOWS[/bold magenta]                            [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [magenta]▸[/magenta] [magenta]cycle[/magenta]        完整售前周期             [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [magenta]▸[/magenta] [magenta]rfp[/magenta]          RFP快速响应               [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [magenta]▸[/magenta] [magenta]compete[/magenta]       竞标对抗                 [bold]│[/bold]")
-
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
-
-    # Utilities
-    console.print("[bold]│[/bold]  [bold yellow]▸ UTILITIES[/bold yellow]                             [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [yellow]▸[/yellow] [yellow]config[/yellow]        配置 API                    [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [yellow]▸[/yellow] [yellow]status[/yellow]        查看状态                   [bold]│[/bold]")
-    console.print("[bold]│[/bold]  [yellow]▸[/yellow] [yellow]history[/yellow]       历史记录                   [bold]│[/bold]")
-
-    console.print("[bold]│[/bold]                                          [bold]│[/bold]")
-    console.print("[bold]├────────────────────────────────────────┤[/bold]")
-    console.print("[bold]│[/bold]  [coral]›[/coral] [bold]sa <command>[/bold]  [dim]run a command              [/dim][bold]│[/bold]")
-    console.print("[bold]│[/bold]  [coral]›[/coral] [bold]sa help[/bold]      [dim]show all commands         [/dim][bold]│[/bold]")
-    console.print("[bold]└────────────────────────────────────────┘[/bold]")
+    # Bottom bar
+    console.print("[dim]────────────────────────────────────────────────────────────────────────────[/dim]")
+    console.print("[bold teal]❯[/bold teal] ~/sales-architect                              UTF-8 Python 3.12")
     console.print()
 
 
