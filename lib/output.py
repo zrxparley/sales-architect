@@ -22,64 +22,52 @@ console = Console()
 
 
 def print_main_menu():
-    """Print the main menu using Rich Table."""
-    # Header
-    console.print(Panel.fit(
-        "[bold cyan]售前架构师工具箱[/bold cyan]\n"
-        "[dim]Sales Architect CLI v1.0[/dim]",
-        border_style="cyan",
-        padding=(1, 4)
-    ))
+    """Print the main menu using Rich — Claude Code style."""
+    # Header - Claude Code style: bold name, no box, just text
+    console.print()
+    console.print("[bold cyan]Sales Architect[/bold cyan] [dim]售前架构师工具箱 v1.0[/dim]")
     console.print()
 
-    # Commands section
-    console.print("[bold cyan]📋 售前命令[/bold cyan]")
-
-    table = Table(box=box.ROUNDED, show_header=False, width=65)
-    table.add_column("序号", justify="center", style="cyan", width=6)
-    table.add_column("命令", style="cyan bold", width=16)
-    table.add_column("说明")
+    # Core commands - listed directly with indentation
+    console.print("[bold]售前命令[/bold]")
+    console.print()
 
     commands = [
-        ("1", "lead-score", "线索评估 — 8维100分"),
-        ("2", "news", "AI行业早报"),
-        ("3", "briefing", "行业深度简报"),
-        ("4", "strategy", "战略分析"),
-        ("5", "simulate", "战局推演"),
-        ("6", "solution", "方案设计"),
-        ("7", "decide", "商业决策"),
-        ("8", "build", "原型开发"),
-        ("9", "learn", "能力学习"),
+        ("[cyan]lead-score[/cyan]", "线索评估 — 8维100分量化商机"),
+        ("[cyan]news[/cyan]", "AI行业早报 — 今日核心动态"),
+        ("[cyan]briefing[/cyan]", "行业深度简报 — 客户背景研究"),
+        ("[cyan]strategy[/cyan]", "战略分析 — KPMG框架诊断"),
+        ("[cyan]simulate[/cyan]", "战局推演 — 多路径风险模拟"),
+        ("[cyan]solution[/cyan]", "方案设计 — 8步标准化文档"),
+        ("[cyan]decide[/cyan]", "商业决策 — 双引擎结构化分析"),
+        ("[cyan]build[/cyan]", "原型开发 — POC/全栈开发"),
+        ("[cyan]learn[/cyan]", "能力学习 — 生成技能树"),
     ]
 
-    for num, cmd, desc in commands:
-        table.add_row(num, cmd, desc)
-    console.print(table)
+    for cmd, desc in commands:
+        console.print(f"  {cmd:<16} [dim]{desc}[/dim]")
 
-    # Workflows section
     console.print()
-    console.print("[bold magenta]⚡ 组合工作流[/bold magenta]")
 
-    table2 = Table(box=box.ROUNDED, show_header=False, width=65)
-    table2.add_column("序号", justify="center", style="magenta", width=6)
-    table2.add_column("命令", style="magenta bold", width=16)
-    table2.add_column("说明")
+    # Workflows
+    console.print("[bold]组合工作流[/bold]")
+    console.print()
 
     workflows = [
-        ("W", "cycle", "完整售前周期"),
-        ("R", "rfp", "RFP快速响应"),
-        ("C", "compete", "竞标对抗分析"),
+        ("[magenta]cycle[/magenta]", "完整售前周期"),
+        ("[magenta]rfp[/magenta]", "RFP快速响应"),
+        ("[magenta]compete[/magenta]", "竞标对抗分析"),
     ]
 
-    for num, cmd, desc in workflows:
-        table2.add_row(num, cmd, desc)
-    console.print(table2)
+    for cmd, desc in workflows:
+        console.print(f"  {cmd:<16} [dim]{desc}[/dim]")
 
-    # Helper commands
     console.print()
-    console.print("[dim]输入命令编号或名称直接执行，如: 1 / lead-score[/dim]")
-    console.print("[dim]辅助命令: config | status | history | help[/dim]")
+
+    # Helper commands - compact inline
+    console.print("[dim]辅助命令:[/dim] [cyan]config[/cyan] [dim]|[/dim] [cyan]status[/cyan] [dim]|[/dim] [cyan]history[/cyan] [dim]|[/dim] [cyan]help[/cyan]")
     console.print()
+    console.print("[dim]使用 sa <命令> --help 查看详细帮助[/dim]")
 
 
 def print_header(title: str):
