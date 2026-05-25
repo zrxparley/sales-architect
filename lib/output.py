@@ -23,51 +23,57 @@ console = Console()
 
 def print_main_menu():
     """Print the main menu using Rich — Claude Code style."""
-    # Header - Claude Code style: bold name, no box, just text
     console.print()
-    console.print("[bold cyan]Sales Architect[/bold cyan] [dim]售前架构师工具箱 v1.0[/dim]")
+    console.print("[bold cyan]Sales Architect[/bold cyan] [dim]售前架构师工具箱[/dim]")
     console.print()
 
-    # Core commands - listed directly with indentation
-    console.print("[bold]售前命令[/bold]")
+    # Main commands with bullet points
+    console.print("[bold]Commands[/bold]")
     console.print()
 
     commands = [
-        ("[cyan]lead-score[/cyan]", "线索评估 — 8维100分量化商机"),
-        ("[cyan]news[/cyan]", "AI行业早报 — 今日核心动态"),
-        ("[cyan]briefing[/cyan]", "行业深度简报 — 客户背景研究"),
-        ("[cyan]strategy[/cyan]", "战略分析 — KPMG框架诊断"),
-        ("[cyan]simulate[/cyan]", "战局推演 — 多路径风险模拟"),
-        ("[cyan]solution[/cyan]", "方案设计 — 8步标准化文档"),
-        ("[cyan]decide[/cyan]", "商业决策 — 双引擎结构化分析"),
-        ("[cyan]build[/cyan]", "原型开发 — POC/全栈开发"),
-        ("[cyan]learn[/cyan]", "能力学习 — 生成技能树"),
+        ("lead-score", "线索评估 — 8维100分量化商机"),
+        ("news", "AI行业早报 — 今日核心动态"),
+        ("briefing", "行业深度简报 — 客户背景研究"),
+        ("strategy", "战略分析 — KPMG框架诊断"),
+        ("simulate", "战局推演 — 多路径风险模拟"),
+        ("solution", "方案设计 — 8步标准化文档"),
+        ("decide", "商业决策 — 双引擎结构化分析"),
+        ("build", "原型开发 — POC/全栈开发"),
+        ("learn", "能力学习 — 生成技能树"),
     ]
 
     for cmd, desc in commands:
-        console.print(f"  {cmd:<16} [dim]{desc}[/dim]")
+        console.print(f"  [cyan]•[/cyan] [cyan]{cmd}[/cyan]  [dim]{desc}[/dim]")
 
     console.print()
 
     # Workflows
-    console.print("[bold]组合工作流[/bold]")
+    console.print("[bold]Workflows[/bold]")
     console.print()
 
     workflows = [
-        ("[magenta]cycle[/magenta]", "完整售前周期"),
-        ("[magenta]rfp[/magenta]", "RFP快速响应"),
-        ("[magenta]compete[/magenta]", "竞标对抗分析"),
+        ("cycle", "完整售前周期"),
+        ("rfp", "RFP快速响应"),
+        ("compete", "竞标对抗分析"),
     ]
 
     for cmd, desc in workflows:
-        console.print(f"  {cmd:<16} [dim]{desc}[/dim]")
+        console.print(f"  [cyan]•[/cyan] [cyan]{cmd}[/cyan]  [dim]{desc}[/dim]")
 
     console.print()
 
-    # Helper commands - compact inline
-    console.print("[dim]辅助命令:[/dim] [cyan]config[/cyan] [dim]|[/dim] [cyan]status[/cyan] [dim]|[/dim] [cyan]history[/cyan] [dim]|[/dim] [cyan]help[/cyan]")
+    # Utility commands
+    console.print("[bold]Utilities[/bold]")
     console.print()
-    console.print("[dim]使用 sa <命令> --help 查看详细帮助[/dim]")
+    console.print(f"  [cyan]•[/cyan] [cyan]config[/cyan]  [dim]配置 API / 个人信息[/dim]")
+    console.print(f"  [cyan]•[/cyan] [cyan]status[/cyan]  [dim]查看 skill 安装状态[/dim]")
+    console.print(f"  [cyan]•[/cyan] [cyan]history[/cyan] [dim]查看历史记录[/dim]")
+    console.print(f"  [cyan]•[/cyan] [cyan]help[/cyan]   [dim]显示帮助[/dim]")
+
+    console.print()
+    console.print("[dim]Type [cyan]sa <command>[/cyan] to run a command[/dim]")
+    console.print("[dim]Press [cyan]?[/cyan] for help[/dim]")
 
 
 def print_header(title: str):
