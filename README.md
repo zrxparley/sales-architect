@@ -5,10 +5,42 @@
 
 ## 安装
 
+### 方法 1: pip install（推荐）
+
+```bash
+# 从 GitHub 安装
+pip install git+https://github.com/zrxparley/sales-architect.git
+
+# 或克隆后本地安装
+git clone https://github.com/zrxparley/sales-architect.git
+cd sales-architect
+pip install -e .
+
+# 配置
+sa config
+```
+
+### 方法 2: 传统安装
+
 ```bash
 bash ~/.workbuddy/skills/sales-architect/install.sh
 source ~/.zshrc
 sa config
+```
+
+### 启用 Shell 自动补全
+
+```bash
+# 复制补全脚本到 zsh 补全目录
+mkdir -p ~/.zsh/completions
+cp completions/_sa ~/.zsh/completions/
+
+# 添加到 ~/.zshrc
+echo 'fpath=(~/.zsh/completions $fpath)' >> ~/.zshrc
+echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+
+# 重新加载
+source ~/.zshrc
 ```
 
 ## 快速开始
