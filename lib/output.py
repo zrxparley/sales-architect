@@ -22,35 +22,41 @@ console = Console()
 
 
 def print_main_menu():
-    """Print the main menu using Rich — Claude Code style."""
+    """Print the main menu — retro terminal / hackathon poster style."""
+    # Dark terminal window chrome
     console.print()
-    console.print("[bold cyan]Sales Architect[/bold cyan] [dim]售前架构师工具箱[/dim]")
+    console.print("[black on dark_green]    [/black on dark_green]"
+                  "[black on dark_green]  SALES ARCHITECT  "
+                  "[black on dark_green]    [/black on dark_green]")
     console.print()
 
-    # Main commands with bullet points
-    console.print("[bold]Commands[/bold]")
+    # ASCII art title
+    console.print("[bold coral]████ Sales Architect ████[/bold coral]")
+    console.print("[coral]▓▓▓▓ 售前架构师工具箱 ▓▓▓▓[/coral]")
     console.print()
+
+    # Section: Commands
+    console.print("[bold mustard]━━━ COMMANDS ━━━[/bold mustard]")
 
     commands = [
-        ("lead-score", "线索评估 — 8维100分量化商机"),
-        ("news", "AI行业早报 — 今日核心动态"),
-        ("briefing", "行业深度简报 — 客户背景研究"),
-        ("strategy", "战略分析 — KPMG框架诊断"),
-        ("simulate", "战局推演 — 多路径风险模拟"),
-        ("solution", "方案设计 — 8步标准化文档"),
-        ("decide", "商业决策 — 双引擎结构化分析"),
-        ("build", "原型开发 — POC/全栈开发"),
-        ("learn", "能力学习 — 生成技能树"),
+        ("lead-score", "线索评估 — 8维100分"),
+        ("news", "AI行业早报 — 今日动态"),
+        ("briefing", "行业深度简报"),
+        ("strategy", "战略分析 — KPMG"),
+        ("simulate", "战局推演"),
+        ("solution", "方案设计 — 8步"),
+        ("decide", "商业决策"),
+        ("build", "原型开发"),
+        ("learn", "能力学习"),
     ]
 
     for cmd, desc in commands:
-        console.print(f"  [cyan]•[/cyan] [cyan]{cmd}[/cyan]  [dim]{desc}[/dim]")
+        console.print(f"  [coral]▸[/coral] [bold cyan]{cmd:<14}[/bold cyan][dim]{desc}[/dim]")
 
     console.print()
 
-    # Workflows
-    console.print("[bold]Workflows[/bold]")
-    console.print()
+    # Section: Workflows
+    console.print("[bold mustard]━━━ WORKFLOWS ━━━[/bold mustard]")
 
     workflows = [
         ("cycle", "完整售前周期"),
@@ -59,21 +65,30 @@ def print_main_menu():
     ]
 
     for cmd, desc in workflows:
-        console.print(f"  [cyan]•[/cyan] [cyan]{cmd}[/cyan]  [dim]{desc}[/dim]")
+        console.print(f"  [coral]▸[/coral] [bold magenta]{cmd:<14}[/bold magenta][dim]{desc}[/dim]")
 
     console.print()
 
-    # Utility commands
-    console.print("[bold]Utilities[/bold]")
-    console.print()
-    console.print(f"  [cyan]•[/cyan] [cyan]config[/cyan]  [dim]配置 API / 个人信息[/dim]")
-    console.print(f"  [cyan]•[/cyan] [cyan]status[/cyan]  [dim]查看 skill 安装状态[/dim]")
-    console.print(f"  [cyan]•[/cyan] [cyan]history[/cyan] [dim]查看历史记录[/dim]")
-    console.print(f"  [cyan]•[/cyan] [cyan]help[/cyan]   [dim]显示帮助[/dim]")
+    # Section: Utilities
+    console.print("[bold mustard]━━━ UTILITIES ━━━[/bold mustard]")
+
+    utils = [
+        ("config", "配置 API"),
+        ("status", "skill状态"),
+        ("history", "历史记录"),
+        ("help", "帮助"),
+    ]
+
+    for cmd, desc in utils:
+        console.print(f"  [coral]▸[/coral] [bold yellow]{cmd:<14}[/bold yellow][dim]{desc}[/dim]")
 
     console.print()
-    console.print("[dim]Type [cyan]sa <command>[/cyan] to run a command[/dim]")
-    console.print("[dim]Press [cyan]?[/cyan] for help[/dim]")
+
+    # Prompt line — monospace style
+    console.print("[dim]─────────────────────────────────────────[/dim]")
+    console.print("[coral]›[/coral] [dim]sa[/dim] [bold]<command>[/bold] [dim]— run a command[/dim]")
+    console.print("[coral]›[/coral] [dim]sa[/dim] [bold]?<command>[/bold] [dim]— get help[/dim]")
+    console.print()
 
 
 def print_header(title: str):
