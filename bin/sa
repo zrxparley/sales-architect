@@ -1,0 +1,4 @@
+#!/bin/sh
+# Sales Architect CLI entry point
+SA_HOME="$(cd "$(dirname "$0")/.." && pwd)"
+exec python3 "$SA_HOME/sa.py" "$@"

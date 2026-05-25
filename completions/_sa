@@ -1,0 +1,103 @@
+#compdef sa
+
+# Zsh completion for Sales Architect CLI
+# Installation: Copy this file to ~/.zsh/completions/_sa or add to fpath
+
+_sa() {
+    local -a commands
+    commands=(
+        'lead-score:线索评估 - 8维100分量化商机质量'
+        'news:AI行业早报 - 今日核心动态'
+        'briefing:行业深度简报 - 客户背景研究'
+        'strategy:战略分析 - KPMG框架诊断客户痛点'
+        'simulate:战局推演 - 多路径风险收益模拟'
+        'solution:方案设计 - 8步标准化方案文档'
+        'decide:商业决策 - 双引擎结构化分析'
+        'build:原型开发 - POC/全栈开发'
+        'learn:能力学习 - 生成技能树'
+        'cycle:完整售前周期工作流'
+        'rfp:快速RFP响应工作流'
+        'compete:竞标对抗分析工作流'
+        'config:配置 API / 个人信息'
+        'status:查看 skill 安装状态'
+        'update:更新所有 skill'
+        'history:查看历史记录'
+        'docs:打开输出目录'
+        'help:显示帮助'
+    )
+
+    local -a common_flags
+    common_flags=(
+        '--plain:纯文本输出（可粘贴微信）'
+        '--tool:指定工具 (claude/workbuddy)'
+        '--output-only:只生成 prompt 文件，不执行'
+        '--help:显示帮助信息'
+    )
+
+    _arguments -C \
+        '1:command:->command' \
+        '*::arg:->args'
+
+    case $state in
+        command)
+            _describe -t commands 'sa commands' commands
+            ;;
+        args)
+            case $words[1] in
+                lead-score|strategy|simulate|solution|decide)
+                    _arguments \
+                        '--plain:纯文本输出' \
+                        '--tool:指定工具:->tools' \
+                        '--output-only:只生成prompt' \
+                        '--help:显示帮助'
+                    ;;
+                news|briefing)
+                    _arguments \
+                        '--plain:纯文本输出' \
+                        '--tool:指定工具:->tools' \
+                        '--output-only:只生成prompt' \
+                        '--help:显示帮助'
+                    ;;
+                cycle|rfp|compete)
+                    _arguments \
+                        '--plain:纯文本输出' \
+                        '--tool:指定工具:->tools' \
+                        '--help:显示帮助'
+                    ;;
+                rfp)
+                    _arguments \
+                        '1:file:_files -g "*.md *.txt *.docx *.pdf"' \
+                        '--plain:纯文本输出' \
+                        '--tool:指定工具:->tools' \
+                        '--help:显示帮助'
+                    ;;
+                config)
+                    _arguments \
+                        '--show:显示当前配置' \
+                        '--help:显示帮助'
+                    ;;
+                history)
+                    _arguments \
+                        '--clear:清空历史记录' \
+                        '--help:显示帮助'
+                    ;;
+                *)
+                    _arguments \
+                        '--help:显示帮助'
+                    ;;
+            esac
+            ;;
+    esac
+}
+
+# Tools completion
+_sa_tools() {
+    local -a tools
+    tools=(
+        'claude:Claude Code'
+        'workbuddy:WorkBuddy'
+    )
+    _describe -t tools 'tools' tools
+}
+
+_sa "$@"
