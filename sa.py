@@ -14,17 +14,22 @@ from pathlib import Path
 # Ensure lib is importable
 sys.path.insert(0, str(Path(__file__).parent))
 
+from rich.console import Console
+console = Console()
+
 from lib.config import load_config, save_config, show_config, CONFIG_FILE
 from lib.prompt import load_command, load_workflow, render_prompt, list_commands, list_workflows
 from lib.llm import call_llm_streaming
 from lib.output import (
     print_header, print_success, print_warning, print_error, print_info,
     display_streaming, format_terminal, format_plain, save_output,
+    print_main_menu,
     BOLD, GREEN, YELLOW, BLUE, RED, DIM, RESET,
 )
 from lib.tool_bridge import detect_tools, run_claude, run_workbuddy, suggest_install
 from lib.history import log_history, show_history, clear_history
 from lib.cache import get_cache, is_cache_enabled
+from rich.panel import Panel
 
 # ─── Globals ───
 SA_HOME = Path(__file__).parent
@@ -98,24 +103,14 @@ def cmd_help():
 
 
 def cmd_welcome():
-    """Show welcome message and first-use guidance."""
+    """Show welcome message and main menu."""
     config = load_config()
     has_key = bool(config.get("api", {}).get("api_key"))
 
-    print(f"\n  {BOLD}🎉 欢迎使用售前架构师工具箱{RESET}\n")
+    print_main_menu()
 
     if not has_key:
-        print(f"  {YELLOW}你还没有配置 API，需要 30 秒完成初始化:{RESET}")
-        print(f"  运行: {BLUE}sa config{RESET}\n")
-    else:
-        print(f"  {GREEN}✓ API 已配置{RESET}")
-        print(f"  {GREEN}✓ 准备就绪{RESET}\n")
-
-    print(f"  {BOLD}试试这些命令:{RESET}")
-    print(f"    {BLUE}sa lead-score{RESET}     评估一个商机值不值得跟进")
-    print(f"    {BLUE}sa news{RESET}           看看今天 AI 行业发生了什么")
-    print(f"    {BLUE}sa help{RESET}           查看所有命令")
-    print()
+        console.print(f"  [yellow]⚡[/yellow] 首次使用，运行 [blue]sa config[/blue] 配置 API\n")
 
 
 def cmd_config(args, flags=None):
@@ -358,12 +353,6 @@ def cmd_skill(subcommand, args, flags, existing_context=None):
 
     config = load_config()
 
-    # Check API key
-    if not config.get("api", {}).get("api_key"):
-        print(f"\n  {RED}✗ API Key 未配置{RESET}")
-        print(f"  运行 {BLUE}sa config{RESET} 配置 API\n")
-        return existing_context or {}
-
     # Load command definition
     cmd_def = load_command(subcommand)
     if not cmd_def:
@@ -387,6 +376,16 @@ def cmd_skill(subcommand, args, flags, existing_context=None):
 
     # Render prompt
     prompt = render_prompt(cmd_def, context, config)
+
+    # Check API key only when actually calling LLM
+    if mode == "builtin" and not output_only and not config.get("api", {}).get("api_key"):
+        console.print(Panel(
+            "[yellow]⚡ 使用前需要先配置 API[/yellow]\n\n"
+            "运行 [cyan]sa config[/cyan] 完成配置",
+            border_style="yellow",
+            padding=(1, 2)
+        ))
+        return context
 
     if output_only or mode == "output-only":
         prompt_file = Path(tempfile.gettempdir()) / f"sa-{subcommand}-{context.get('customer_name', 'task')}.md"
