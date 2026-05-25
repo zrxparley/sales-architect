@@ -23,24 +23,27 @@ console = Console()
 
 def print_main_menu():
     """Print the main menu — retro terminal / hackathon poster style."""
-    # Dark terminal window chrome
-    console.print()
-    console.print("[black on dark_green]    [/black on dark_green]"
-                  "[black on dark_green]  SALES ARCHITECT  "
-                  "[black on dark_green]    [/black on dark_green]")
     console.print()
 
-    # ASCII art title
-    console.print("[bold coral]████ Sales Architect ████[/bold coral]")
-    console.print("[coral]▓▓▓▓ 售前架构师工具箱 ▓▓▓▓[/coral]")
+    # Title bar with traffic lights
+    console.print("[red]●[/red] [yellow]●[/yellow] [green]●[/green]  [bold cyan]Sales Architect[/bold cyan] 售前工具箱")
     console.print()
 
-    # Section: Commands
-    console.print("[bold mustard]━━━ COMMANDS ━━━[/bold mustard]")
+    # ASCII art — pixel style
+    console.print("[bold coral]████  ████  ███   ███  ████[/bold coral]")
+    console.print("[bold coral]██    █  █  █ █   █ █  █  [bold coral]     [dim]┌────────────────┐[/dim]")
+    console.print("[bold coral]███   ████  █ █   █ █  ███[bold coral]     [dim]│   [cyan]◕‿◕[cyan]    │[/dim]")
+    console.print("[bold coral]██    █  █  █ █   █ █  █  [bold coral]     [dim]│   SALES    │[/dim]")
+    console.print("[bold coral]████  █  █  ███   ███  ████[bold coral]     [dim]│  ARCHITECT │[/dim]")
+    console.print("[bold coral]                                   [dim]└────────────────┘[/dim]")
 
+    console.print()
+
+    # Commands
+    console.print("[bold yellow]▸ COMMANDS[/bold yellow]")
     commands = [
         ("lead-score", "线索评估 — 8维100分"),
-        ("news", "AI行业早报 — 今日动态"),
+        ("news", "AI行业早报"),
         ("briefing", "行业深度简报"),
         ("strategy", "战略分析 — KPMG"),
         ("simulate", "战局推演"),
@@ -49,45 +52,29 @@ def print_main_menu():
         ("build", "原型开发"),
         ("learn", "能力学习"),
     ]
-
     for cmd, desc in commands:
-        console.print(f"  [coral]▸[/coral] [bold cyan]{cmd:<14}[/bold cyan][dim]{desc}[/dim]")
+        console.print(f"  [cyan]▸[/cyan] [bold cyan]{cmd}[/bold cyan]  [dim]{desc}[/dim]")
 
     console.print()
 
-    # Section: Workflows
-    console.print("[bold mustard]━━━ WORKFLOWS ━━━[/bold mustard]")
-
-    workflows = [
-        ("cycle", "完整售前周期"),
-        ("rfp", "RFP快速响应"),
-        ("compete", "竞标对抗分析"),
-    ]
-
-    for cmd, desc in workflows:
-        console.print(f"  [coral]▸[/coral] [bold magenta]{cmd:<14}[/bold magenta][dim]{desc}[/dim]")
+    # Workflows
+    console.print("[bold magenta]▸ WORKFLOWS[/bold magenta]")
+    console.print("  [magenta]▸[/magenta] [magenta]cycle[/magenta]   完整售前周期")
+    console.print("  [magenta]▸[/magenta] [magenta]rfp[/magenta]     RFP快速响应")
+    console.print("  [magenta]▸[/magenta] [magenta]compete[/magenta]  竞标对抗")
 
     console.print()
 
-    # Section: Utilities
-    console.print("[bold mustard]━━━ UTILITIES ━━━[/bold mustard]")
-
-    utils = [
-        ("config", "配置 API"),
-        ("status", "skill状态"),
-        ("history", "历史记录"),
-        ("help", "帮助"),
-    ]
-
-    for cmd, desc in utils:
-        console.print(f"  [coral]▸[/coral] [bold yellow]{cmd:<14}[/bold yellow][dim]{desc}[/dim]")
+    # Utilities
+    console.print("[bold yellow]▸ UTILITIES[/bold yellow]")
+    console.print("  [yellow]▸[/yellow] [yellow]config[/yellow]   配置 API")
+    console.print("  [yellow]▸[/yellow] [yellow]status[/yellow]   查看状态")
+    console.print("  [yellow]▸[/yellow] [yellow]history[/yellow]  历史记录")
 
     console.print()
-
-    # Prompt line — monospace style
     console.print("[dim]─────────────────────────────────────────[/dim]")
-    console.print("[coral]›[/coral] [dim]sa[/dim] [bold]<command>[/bold] [dim]— run a command[/dim]")
-    console.print("[coral]›[/coral] [dim]sa[/dim] [bold]?<command>[/bold] [dim]— get help[/dim]")
+    console.print("[coral]›[/coral] [bold]sa <command>[/bold]  [dim]run[/dim]")
+    console.print("[coral]›[/coral] [bold]sa ?<command>[/bold] [dim]help[/dim]")
     console.print()
 
 
